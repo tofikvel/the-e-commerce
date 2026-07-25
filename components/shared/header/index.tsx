@@ -6,7 +6,7 @@ import NavMenu from "./menu";
 
 const Header = () => {
   return (
-    <header className="w-full border-b">
+    <header className="w-full border-b mb-4">
       <div className="flex justify-between mx-auto h-16 max-w-7xl items-center px-6">
         <div className="flex">
           <Link href="/" className="flex items-center">
