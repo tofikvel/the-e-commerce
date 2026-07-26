@@ -6,7 +6,7 @@ const ProductCard = ({ product }: { product: any }) => {
   return (
     <>
       <Card className="w-full max-w-sm hover:shadow-lg hover:-translate-y-1 transition">
-        <Link href={`/product/${product.slug}`}>
+        <Link href={`/products/${product.slug}`}>
           <CardHeader className="p-0 justify-center items-center">
             <Image src={product.image} alt={product.title} width={300} height={300} priority={true} />
           </CardHeader>
