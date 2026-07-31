@@ -8,7 +8,7 @@ const ProductCard = ({ product }: { product: any }) => {
       <Card className="w-full max-w-sm hover:shadow-lg hover:-translate-y-1 transition">
         <Link href={`/products/${product.slug}`}>
           <CardHeader className="p-0 justify-center items-center">
-            <Image src={product.image} alt={product.title} width={300} height={300} priority={true} />
+            <Image src={product.images[0]} alt={product.title} width={300} height={300} priority={true} />
           </CardHeader>
           <CardContent className="grid p-4 gap-4">
             <div className="text-xs">{product.brand}</div>

@@ -2,6 +2,7 @@ import getProduct from "@/lib/products";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import ProductImages from "@/components/shared/product/product-images";
 
 type Props = {
   params: Promise<{
@@ -19,18 +20,25 @@ const ProductPage = async ({ params }: Props) => {
   }
 
   return (
-    <div className="grid grid-cols-2 items-center max-w-7xl mx-auto p-6 border">
-      <div className="single-product-image">
-        <Image src={product.image} alt="product-image" width={450} height={450} priority={true} />
+    <section className="grid grid-cols-1 md:grid-cols-5 max-w-7xl mx-auto p-6 border">
+      <div className="col-span-2">
+        <div className="flex flex-col">
+          <ProductImages images={product.images} />
+        </div>
       </div>
-      <div className="flex flex-col gap-4">
-        <p>{product.brand}</p>
-        <h1 className="font-bold text-3xl">{product.title}</h1>
-        <p>${product.price}</p>
-        <p>{product.description}</p>
-        <Button>Add to cart</Button>
+      <div className="col-span-2 p-5">
+        <div className="flex flex-col gap-5">
+          <p>
+            {product.brand} / {product.category}
+          </p>
+          <h1 className="font-bold text-3xl">{product.title}</h1>
+          <p>⭐ {product.rating}</p>
+          <p>${product.price}</p>
+          <p>{product.description}</p>
+          {product.stock > 0 ? <Button>Add to cart</Button> : <p className="text-red-500">Out of stock</p>}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
