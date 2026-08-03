@@ -35,7 +35,10 @@ const ProductPage = async ({ params }: Props) => {
           <p>⭐ {product.rating}</p>
           <p>${product.price}</p>
           <p>{product.description}</p>
-          {product.stock > 0 ? <Button>Add to cart</Button> : <p className="text-red-500">Out of stock</p>}
+          {product.stock === 0 && <p className="text-red-500">Out of stock</p>}
+          <Button className="cursor-pointer" disabled={product.stock === 0}>
+            Add to cart
+          </Button>
         </div>
       </div>
     </section>
